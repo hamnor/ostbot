@@ -5,7 +5,6 @@ const bot = new Discord.Client();
 
 const prefix = '+';
 
-
 var pkbilder = [
     " https://cdn.discordapp.com/attachments/557172397946437638/697187203788570665/Snapchat-567761806.jpg",
     "https://cdn.discordapp.com/attachments/557172397946437638/697187205659230258/Snapchat-1843747936.jpg",
@@ -15,8 +14,7 @@ var pkbilder = [
     "https://cdn.discordapp.com/attachments/557172397946437638/697187390548344902/4100593582630580383.PNG",
     "https://cdn.discordapp.com/attachments/557172397946437638/697187391068438598/4810034613354074273.PNG",
     "https://cdn.discordapp.com/attachments/557172397946437638/697187391458377758/15942013416585093799.JPG",
-    "https://cdn.discordapp.com/attachments/557172397946437638/697187698758123520/Snapchat-251132798.jpg",
-    "https://cdn.discordapp.com/attachments/697186902754852894/697886778429931651/pk.jpg"
+    "https://cdn.discordapp.com/attachments/557172397946437638/697187698758123520/Snapchat-251132798.jpg"
 ];
 var sbilder = [
     " https://cdn.discordapp.com/attachments/557172397946437638/600081374182899717/image0.png",
@@ -41,9 +39,6 @@ var citat = [
     '"Bättre en fågel i handen än 10 i skogen"',
     '"Den som säg i leken ger, får leken tåla"',
     '"En hund är alltid en hund"',
-    '"Man kan inte lära en gammal hund att sitta"',
-    '"Pk är alltid bög oavsett vad"',
-    
 ]
 
 var citb = [
@@ -52,17 +47,10 @@ var citb = [
     "Hasse Hallgren - 1524",
     "Hasse Hallgren - 1988",
     "Hasse Hallgren - 2020",
-    "Hasse Hallgren - 1895",
-    "Hasse Hallgren - 1675",
-    "Hasse Hallgren - 1524",
-    "Hasse Hallgren - 1988",
-    "Hasse Hallgren - 2020",
-    "Hasse Hallgren - 1895",
-    "Hasse Hallgren - 1675",
-    "Hasse Hallgren - 1524",
-    "Hasse Hallgren - 1988",
-    "Hasse Hallgren - 2020",
+    "Hasse Hallgren - 1436",
+    "Hasse Hallgren - 1020",
 ]
+
 const millisToTime = function(milliseconds) {
     let x = milliseconds / 1000;
     let s = Math.floor(x % 60);
@@ -74,22 +62,25 @@ const millisToTime = function(milliseconds) {
     
 };
 
-
 bot.on('ready', ()=>{ 
-    console.log('This bot is online!');
-    bot.user.setActivity("+help");
+    console.log('This bot is online!')
+    bot.user.setActivity("Ostservern");
+
 })
 
 bot.on('message', message=>{
 
 
     let args = message.content.substring(prefix.length).split(" ");
-if(message.content.startsWith('vegan')){
-        message.reply('Vad fan säger du? SKA DU HA BAN?!?!?!?')}
+    if(message.content.startsWith('vegan')){
+        message.reply('Vad fan säger du?')
+        
+        
+    }
     switch(args[0]){
         //pk
         case 'pk':
-        var ipk = Math.floor(Math.random()*10)
+        var ipk = Math.floor(Math.random()*9)
         const pk = new Discord.MessageEmbed()
         .setImage(pkbilder[ipk])
         .setColor('#fff700')
@@ -116,7 +107,7 @@ if(message.content.startsWith('vegan')){
             {name: '+mrlisper', value: 'Bild på alfan i lisper släkten :exploding_head:'},
             {name: '+elvis', value: 'Random bilder på Elvis H :cowboy:'},
             {name: '+hasse', value: 'Kloka citat från Hasse Hallgren :cowboy:'},
-            {name: '+bög', value: 'Bevis på att PK är bög :face_vomiting: '},
+            {name: '+callespam x', value: 'Spamma bild på Carl x antal gånger :zany_face:'},
             {name: '+clear x', value: 'Rensa x antal meddelanden :boom: '},
             )
         .setFooter('Skapad av Osthasse', 'https://assets.icanet.se/t_product_large_v1,f_auto/7318690053736.jpg')
@@ -140,16 +131,15 @@ if(message.content.startsWith('vegan')){
         break;
         //citat
         case 'hasse':
-        var cit = Math.floor(Math.random()*15);
+        var cit = Math.floor(Math.random()*5);
         const hasse = new Discord.MessageEmbed()
         .setTitle(citat[cit])
         .setDescription(citb[cit])
         message.channel.send(hasse);
         break;
-        //botinfo
         case 'botinfo':
         message.channel.send(":clock230: Ostbot har varit online " + millisToTime(bot.uptime));
-            break;
+        break;
         case 'bög':
         
         const bog = new Discord.MessageEmbed()
@@ -157,11 +147,15 @@ if(message.content.startsWith('vegan')){
         .setColor('#fff700')
         message.channel.send(bog) 
         break;
-
-    }
-
-
+        case 'callespam':
+        
+            const callespam = new Discord.MessageEmbed()
+            .setImage("https://cdn.discordapp.com/attachments/517991725306871817/698309690706100284/14185767236152268421.JPG")
+            .setColor('#fff700')
+            for(var i=0;i<args[1]; i++){
+            message.channel.send(callespam) }
+        break;
+        }
 })
-
 
 bot.login(process.env.BOT_TOKEN);
