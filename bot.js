@@ -64,7 +64,7 @@ const millisToTime = function(milliseconds) {
 
 bot.on('ready', ()=>{ 
     console.log('This bot is online!')
-    bot.user.setActivity("Ostservern");
+    bot.user.setActivity("+help");
 
 })
 
@@ -135,7 +135,8 @@ bot.on('message', message=>{
         const hasse = new Discord.MessageEmbed()
         .setTitle(citat[cit])
         .setDescription(citb[cit])
-        message.channel.send(hasse);
+        for(var i=0; i<args[1];i++){
+        message.channel.send(hasse)}
         break;
         case 'botinfo':
         message.channel.send(":clock230: Ostbot har varit online " + millisToTime(bot.uptime));
