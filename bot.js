@@ -135,9 +135,9 @@ bot.on('message', message=>{
         const hasse = new Discord.MessageEmbed()
         .setTitle(citat[cit])
         .setDescription(citb[cit])
-        for(var i=0; i<args[1];i++){
-        message.channel.send(hasse)}
+        message.channel.send(hasse)
         break;
+        //botinfo
         case 'botinfo':
         message.channel.send(":clock230: Ostbot har varit online " + millisToTime(bot.uptime));
         break;
