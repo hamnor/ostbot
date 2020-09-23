@@ -77,7 +77,7 @@ bot.on('message', message=>{
         
         
     }
-     if(message.content.startsWith('\:point_right:')){
+     if(message.content.startsWith('pontarenking')){
         message.reply('Vad fan säger du?')
         
         
