@@ -77,6 +77,11 @@ bot.on('message', message=>{
         
         
     }
+     if(message.content.startsWith('\:point_right:')){
+        message.reply('Vad fan säger du?')
+        
+        
+    }
     switch(args[0]){
         //pk
         case 'pk':
