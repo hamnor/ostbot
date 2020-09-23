@@ -131,6 +131,9 @@ bot.on('message', message=>{
         .setColor('#fff700')
         message.channel.send(elvis) 
         break;
+        case ':point_right:':
+        message.reply('LÄGG NER');
+        break;
         //citat
         case 'hasse':
         var cit = Math.floor(Math.random()*5);
